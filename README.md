@@ -1,1 +1,1 @@
-# ERocnikovy-projekt-1-potraviny
+# Rocnikovy-projekt-1-potraviny
