@@ -86,40 +86,6 @@ CREATE TABLE IF NOT EXISTS `codes` (
   KEY `fk_codes_users1` (`users_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_czech_ci;
 
---
--- Vypisuji data pro tabulku `codes`
---
-
-INSERT INTO `codes` (`id`, `email`, `code`, `expire`, `users_id`) VALUES
-(1, 'kalejafi19@zaci.spse.cz', '37217', 1673955065, 1),
-(5, 'kalejafi19@zaci.spse.cz', '34186', 1673955668, 1),
-(6, 'parek@parek.com', '15235', 1673956500, 2),
-(7, 'kalejafi19@zaci.spse.cz', '80068', 1673957126, 1),
-(8, 'parek@parek.com', '75175', 1673957168, 2),
-(9, 'kalejafi19@zaci.spse.cz', '10615', 1673957277, 1),
-(10, 'parek@parek.com', '18950', 1673957403, 2),
-(11, 'kalejafi19@zaci.spse.cz', '69177', 1674941687, 1),
-(12, 'kalejafi19@zaci.spse.cz', '55418', 1674941767, 1),
-(13, 'kalejafi19@zaci.spse.cz', '36225', 1674941873, 1),
-(14, 'kalejafi19@zaci.spse.cz', '32514', 1675355000, 1),
-(15, 'kalejafi19@zaci.spse.cz', '16745', 1676811167, 1),
-(16, 'kalejafi19@zaci.spse.cz', '90444', 1678005044, 1),
-(17, 'kalejafi19@zaci.spse.cz', '76798', 1678012797, 1),
-(18, 'guguj.kaleja@gmail.com', '97765', 1678102778, 242),
-(19, 'guguj.kaleja@gmail.com', '43943', 1678296108, 242),
-(20, 'cibodo7134@oniecan.com', '47087', 1678966378, 248),
-(21, 'gitegay939@necktai.com', '77873', 1679074057, 252),
-(22, 'kalejafi19@zaci.spse.cz', '14263', 1679421836, 1),
-(23, 'kalejafi19@zaci.spse.cz', '25403', 1679428013, 1),
-(24, 'kalejafi19@zaci.spse.cz', '72801', 1679428242, 1),
-(25, 'kalejafi19@zaci.spse.cz', '15935', 1679428338, 1),
-(26, 'st72446@upce.cz', '77531', 1709414096, 1),
-(27, 'st72446@upce.cz', '12579', 1709414441, 1),
-(28, 'st72446@upce.cz', '78672', 1709415236, 1),
-(29, 'st72446@upce.cz', '94790', 1709415391, 1),
-(30, 'st72446@upce.cz', '14002', 1709415421, 1),
-(31, 'st72446@upce.cz', '24171', 1709415522, 1),
-(32, 'st72446@upce.cz', '75224', 1709415804, 1);
 
 -- --------------------------------------------------------
 
@@ -345,13 +311,6 @@ CREATE TABLE IF NOT EXISTS `user_address` (
   KEY `fk_user_address_users1_idx` (`users_id`),
   KEY `fk_user_address_address1_idx` (`address_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_czech_ci;
-
---
--- Vypisuji data pro tabulku `user_address`
---
-
-INSERT INTO `user_address` (`id`, `users_id`, `address_id`) VALUES
-(20, 1, 170);
 
 --
 -- Omezení pro exportované tabulky
