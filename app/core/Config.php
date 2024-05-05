@@ -19,7 +19,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
       define("DBPASS", "root");
       define("DBDRIVER", "mysql");
       define("DBCHARSET", "utf8");
-      define("MYEMAIL", 'fidakaleja@seznam.cz');
+      define("MYEMAIL", '');
 
   // root path e.g localhost
     define('ROOT', 'http://localhost/projekt-potraviny/public');
