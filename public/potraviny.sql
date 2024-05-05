@@ -37,28 +37,6 @@ CREATE TABLE IF NOT EXISTS `address` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=186 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_czech_ci;
 
---
--- Vypisuji data pro tabulku `address`
---
-
-INSERT INTO `address` (`id`, `town`, `postcode`, `street`, `country`) VALUES
-(170, 'Ustí nad Orlicí', '562 01', 'Horní Houžovec 20', 'czechia'),
-(171, 'Kokot', '53501', 'Kokot 89', 'czechia'),
-(172, 'pardzuce', '21222', 'pardubice', 'czechia'),
-(173, 'Ústí nad Orlicí', '56201', 'Horní Houžovec 20', 'czechia'),
-(174, 'Ústí nad Orlicí', '56201', 'Horní Houžovec 20', 'czechia'),
-(175, 'Ustí nad Orlicí', '562 01', 'Horní Houžovec 20', 'czechia'),
-(176, 'Ustí nad Orlicí', '562 01', 'Horní Houžovec 20', 'czechia'),
-(177, 'Ustí nad Orlicí', '562 01', 'Horní Houžovec 20', 'czechia'),
-(178, 'Ustí nad Orlicí', '562 01', 'Horní Houžovec 20', 'czechia'),
-(179, 'Ustí nad Orlicí', '562 01', 'Horní Houžovec 20', 'czechia'),
-(180, 'Ustí nad Orlicí', '562 01', 'Horní Houžovec 20', 'czechia'),
-(181, 'Facilis anim id enim', '5555', 'Est voluptates quia', 'slovakia'),
-(182, 'Eum assumenda deseru', '5555', 'Veritatis corrupti ', 'czechia'),
-(183, 'Ustí nad Orlicí', '562 01', 'Horní Houžovec 20', 'czechia'),
-(184, 'Ustí nad Orlicí', '562 01', 'Horní Houžovec 20', 'czechia'),
-(185, 'Ustí nad Orlicí', '562 01', 'Horní Houžovec 20', 'czechia');
-
 -- --------------------------------------------------------
 
 --
