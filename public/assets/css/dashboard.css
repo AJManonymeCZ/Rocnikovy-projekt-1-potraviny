@@ -268,10 +268,18 @@ ol {
 }
 
 .table > div {
+  overflow: auto;
   background: #fff;
   padding: 20px;
   box-shadow: 0 5px 9px 0 rgba(0, 0, 0, 0.3);
   margin: 4.5rem 1rem;
+}
+
+.table:has(.languagesWrapper) > div:first-child {
+  margin: 4.5rem 1rem 1rem 1rem;
+}
+.table:has(.languagesWrapper) > div:last-child {
+  margin-top: 0;
 }
 
 .table .heading {

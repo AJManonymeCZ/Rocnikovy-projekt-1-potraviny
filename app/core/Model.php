@@ -16,8 +16,8 @@ class Model extends Database
 
     $keys = array_keys($data);
 
-    $query = "INSERT INTO  " . $this->table;
-    $query .= " (" . implode(",", $keys) . ") VALUES (:" . implode(",:", $keys) . ")";
+    $query = "INSERT INTO " . $this->table;
+    $query .= " (`" . implode("`,`", $keys) . "`) VALUES (:" . implode(",:", $keys) . ")";
 
     if ($lastId == false) {
       return $this->query($query, $data);
@@ -32,7 +32,7 @@ class Model extends Database
     $query = "SELECT * FROM " . $this->table . " WHERE ";
 
     foreach ($keys as $key) {
-      $query .= $key . "=:" . $key . "&&";
+      $query .= "`" . $key . "`=:" . $key . "&&";
     }
 
     $query = trim($query, "&&");
@@ -78,7 +78,7 @@ class Model extends Database
     $query = "SELECT * FROM " . $this->table . " WHERE ";
 
     foreach ($keys as $key) {
-      $query .= $key . "=:" . $key . " && ";
+      $query .= "`" . $key . "`" . "=:" . $key . " && ";
     }
 
     $query = trim($query, " && ");
@@ -97,23 +97,25 @@ class Model extends Database
     return false;
   }
 
-  public function update($id, $data)
+  public function update($id, $data, $skipAllowedColumns = false)
   {
     //remove unwanted colums
-    foreach ($data as $key => $value) {
-      //if ($data[$key] == 'disabled' || $data[$key] == 0) continue;
-      if (!in_array($key, $this->allowedColumns)) {
-        // if ($data[$key] == 0) continue;
-        unset($data[$key]);
+      if (!$skipAllowedColumns) {
+        foreach ($data as $key => $value) {
+          //if ($data[$key] == 'disabled' || $data[$key] == 0) continue;
+          if (!in_array($key, $this->allowedColumns)) {
+            // if ($data[$key] == 0) continue;
+            unset($data[$key]);
+          }
+        }
       }
-    }
 
     $keys = array_keys($data);
     //$query = "UPDATE users SET fitstname = :firstname, lastname = :lastname WHERE id = :id";
     $query = "UPDATE " . $this->table  . " SET ";
 
     foreach ($keys as $value) {
-      $query .= $value . "=:" . $value . ",";
+      $query .= "`" . $value . "`" . "=:" . $value . ",";
     }
 
     $query = trim($query, ",");
@@ -132,5 +134,19 @@ class Model extends Database
       return true;
     else
       return false;
+  }
+
+  public function getFields(): array {
+      $query = "DESC " . $this->table;
+      $fields = $this->query($query);
+
+      $result = [];
+      if (!empty($fields)) {
+          foreach ($fields as $field) {
+              $result[] = $field->Field;
+          }
+      }
+
+      return $result;
   }
 }

@@ -13,6 +13,18 @@ use PayPal\Rest\ApiContext;
 
 if (!defined("ROOT")) die("direct script access denied");
 
+
+$PATH = "";
+function setPath(string $path): void {
+    global $PATH;
+    $PATH = $path;
+}
+
+function getPath(): string {
+    global $PATH;
+    return $PATH;
+}
+
 function set_value($key, $default = '')
 {
   if (!empty($_POST[$key])) {
@@ -88,9 +100,16 @@ function user_can(string $permission): bool
 
 function show($stuff)
 {
-  echo "<pre>";
+  echo "<pre style='z-index: 9999999'>";
   print_r($stuff);
   echo "</pre>";
+}
+
+function dd($stuff) {
+    echo "<pre style='z-index: 9999999'>";
+    print_r($stuff);
+    echo "</pre>";
+    die;
 }
 
 function redirect($link)

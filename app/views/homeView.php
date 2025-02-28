@@ -36,7 +36,7 @@
     <?php foreach ($most_viewed_products as $product) : ?>
       <!-- PRODUCT -->
       <div class="item">
-        <a href="<?= ROOT ?>/product/<?= $product->slug ?>">
+        <a href="<?= getPath() ?>/product/<?= $product->slug ?>">
           <img src="<?= get_image(esc($product->product_image)) ?>" alt="<?= esc($product->name) ?>" class="photo" />
         </a>
         <div class="item-info">

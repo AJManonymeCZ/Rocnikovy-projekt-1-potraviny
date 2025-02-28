@@ -8,7 +8,10 @@ spl_autoload_register(function ($className) {
 
 require "Config.php";
 require "functions.php";
+require "Session.php";
 require "Database.php";
+require "Language.php";
+require "LanguageFactory.php";
 require "Model.php";
 require "Controller.php";
 require "App.php";

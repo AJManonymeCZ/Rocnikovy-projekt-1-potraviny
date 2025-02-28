@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\NoReturn;
+
 if (!defined("ROOT")) die("direct script access denied");
 
 class AdminController extends Controller
@@ -506,5 +508,59 @@ class AdminController extends Controller
     }
 
     $this->view("admin/slider", $data);
+  }
+
+  public function translations() {
+      //TODO: add edit and remove languages
+      $data['title'] = LanguageFactory::getLocalized("page.title.translations");
+
+      $languageClass = new Lang();
+      $translationsClass = new Translation();
+
+      $langs = $languageClass->findAll();
+      $data['languages']['fields'] = $languageClass->getFields();
+      $data['languages']['data'] = $langs ?? [];
+      $data['fields'] = $translationsClass->getFields();
+      $data['translations'] = $translationsClass->findAll();
+
+      $this->view("admin/translations", $data);
+  }
+
+  public function translationApi() {
+      //TODO: filtering the translation table - will be fun :)
+      $method = $_SERVER['REQUEST_METHOD'];
+      $translationClass = new Translation();
+      $data = json_decode(file_get_contents("php://input", true));
+
+      if ($method == "POST") {
+          // just update it hould be good;
+          // validate the data --> for now just chekc if not empty
+          $rowId = $data->rowId;
+          $languageKey = $data->languageKey;
+          $translation = $data->translation;
+
+          if (!empty($rowId) && !empty($languageKey) && !empty($translation)) {
+              $translationRow = $translationClass->first(["id" => $rowId]);
+              if ($translationRow && in_array($languageKey, $translationClass->getFields()) && $translationRow->$languageKey != $translation) {
+                  $check = $translationClass->query(
+                      "UPDATE " . $translationClass->table . " SET `" . $languageKey . "`=:translation " . "WHERE id=:id",
+                      ["translation" => $translation, "id" => $rowId]
+                  );
+                  if ($check) {
+                    $this->respond(["message" => "Value saved successfully"], 200);
+                  } else {
+                      $this->respond(["error" => "Something went wrong"], 500);
+                  }
+              }
+          } else {
+              $this->respond(["error" => "Invalid parameters"], 400);
+          }
+      }
+  }
+
+  #[NoReturn] function respond(mixed $data, int $statusCode) {
+      http_response_code($statusCode);
+      echo json_encode($data);
+      die;
   }
 }

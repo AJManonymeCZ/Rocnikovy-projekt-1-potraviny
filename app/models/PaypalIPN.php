@@ -64,7 +64,6 @@ class PaypalIPN
       redirect("home");
       //throw new Exception("Missing POST Data");
     }
-    $_SESSION["HERE"] = "HERE";
     $raw_post_data = file_get_contents('php://input');
     $raw_post_array = explode('&', $raw_post_data);
     $myPost = array();

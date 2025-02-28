@@ -9,6 +9,7 @@
   <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
   <!-- Link for styles  -->
   <link rel="stylesheet" href="<?= ROOT ?>/assets/css/dashboard.css" />
+    <script src="<?= ROOT ?>/assets/js/axios.js" defer></script>
   <title><?= APP_NAME ?> | <?= $title ?? "Orders" ?></title>
 </head>
 
@@ -23,43 +24,49 @@
           </a>
         </li>
         <li>
-          <a href="<?= ROOT ?>/admin/dashboard">
+          <a href="<?= getPath() ?>/admin/dashboard">
             <i class="bx bx-grid-alt"></i>
             <div class="title">Dashboard</div>
           </a>
         </li>
         <li>
-          <a href="<?= ROOT ?>/admin/categories">
+          <a href="<?= getPath() ?>/admin/categories">
             <i class="bx bx-category-alt"></i>
             <div class="title">Categories</div>
           </a>
         </li>
         <li>
-          <a href="<?= ROOT ?>/admin/products">
+          <a href="<?= getPath() ?>/admin/products">
             <i class="bx bxl-product-hunt"></i>
             <div class="title">Products</div>
           </a>
         </li>
         <li>
-          <a href="<?= ROOT ?>/admin/orders">
+          <a href="<?= getPath() ?>/admin/orders">
             <i class='bx bx-purchase-tag-alt'></i>
             <div class="title">Orders</div>
           </a>
         </li>
         <li>
-          <a href="<?= ROOT ?>/admin/users">
+          <a href="<?= getPath() ?>/admin/users">
             <i class="bx bx-user-circle"></i>
             <div class="title">Users</div>
           </a>
         </li>
         <li>
-          <a href="<?= ROOT ?>/admin/slider">
+          <a href="<?= getPath() ?>/admin/slider">
             <i class='bx bx-images'></i>
             <div class="title">Slider Images</div>
           </a>
         </li>
+          <li>
+              <a href="<?= getPath() ?>/admin/translations">
+                  <i class='bx bx-images'></i>
+                  <div class="title"><?= LanguageFactory::getLocalized("page.title.translations") ?></div>
+              </a>
+          </li>
         <li>
-          <a href="<?= ROOT ?>/home">
+          <a href="<?= getPath() ?>/home">
             <i class="bx bx-home"></i>
             <div class="title">Home</div>
           </a>
@@ -77,7 +84,7 @@
             <ul>
               <li class="profile-modal-trigger"><i class="bx bxs-cog"></i><a>Profile</a></li>
               <li>
-                <i class="bx bxs-log-out-circle"></i><a href="<?= ROOT ?>/logout">Logout</a>
+                <i class="bx bxs-log-out-circle"></i><a href="<?= getPath() ?>/logout">Logout</a>
               </li>
             </ul>
           </div>

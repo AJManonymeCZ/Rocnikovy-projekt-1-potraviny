@@ -24,13 +24,13 @@
           <i class="bx bx-x"></i>
         </div>
         <ul class="links">
-          <li><a href="<?= ROOT ?>/home">Domů</a></li>
-          <li><a href="<?= ROOT ?>/shop">Obchod</a></li>
-          <li><a href="<?= ROOT ?>/about">O nás</a></li>
-          <li><a href="<?= ROOT ?>/contact">Kontakt</a></li>
+          <li><a href="<?= getPath() ?>/home"><?= LanguageFactory::getLocalized("navigation.home") ?></a></li>
+          <li><a href="<?=  getPath() ?>/shop"><?= LanguageFactory::getLocalized("navigation.shop") ?></a></li>
+          <li><a href="<?=  getPath() ?>/about"><?= LanguageFactory::getLocalized("navigation.about") ?></a></li>
+          <li><a href="<?=  getPath() ?>/contact"><?= LanguageFactory::getLocalized("navigation.contact") ?></a></li>
           <?php if (!Auth::logged_in()) : ?>
-            <li><a href="<?= ROOT ?>/signup">Zaregistrovat se</a></li>
-            <li><a href="<?= ROOT ?>/login">Přihlásit se</a></li>
+            <li><a href="<?=  getPath() ?>/signup"><?= LanguageFactory::getLocalized("navigation.signup") ?></a></li>
+            <li><a href="<?=  getPath() ?>/login"><?= LanguageFactory::getLocalized("navigation.login") ?></a></li>
           <?php else : ?>
             <li class="drop">
               <?php if (!empty(Auth::getImage())) : ?>
@@ -40,22 +40,23 @@
               <?php endif; ?>
               <span style="max-width: 150px;">Hi, <?= esc(Auth::getFirstname()) ?><i class="bx bx-chevron-down arrow js-arrow"></i></span>
               <ul class="profile-sub-menu sub-menu">
-                <li><i class='bx bx-edit-alt'></i><label class="profile-modal-trigger">Profil</label></li>
-                <li><i class='bx bx-dollar-circle'></i><a href="<?= ROOT ?>/orders">Objednávky</a></li>
+                <li><i class='bx bx-edit-alt'></i><label class="profile-modal-trigger"><?= LanguageFactory::getLocalized("navigation.profile") ?></label></li>
+                <li><i class='bx bx-dollar-circle'></i><a href="<?=  getPath() ?>/orders"><?= LanguageFactory::getLocalized("navigation.orders") ?></a></li>
                 <?php if (Auth::is_admin()) : ?>
-                  <li><i class='bx bxs-spreadsheet'></i><a href="<?= ROOT ?>/admin/dashboard">DashBoard</a></li>
+                  <li><i class='bx bxs-spreadsheet'></i><a href="<?=  getPath() ?>/admin/dashboard"><?= LanguageFactory::getLocalized("navigation.dashboard") ?></a></li>
                 <?php endif; ?>
-                <li><i class='bx bx-log-out-circle'></i><a href="<?= ROOT ?>/logout">Odhlásit se</a></li>
+                <li><i class='bx bx-log-out-circle'></i><a href="<?=  getPath() ?>/logout"><?= LanguageFactory::getLocalized("navigation.logout") ?></a></li>
               </ul>
             </li>
           <?php endif; ?>
           <li>
-            <a href="<?= ROOT ?>/cart">Košík <i class="bx bx-cart"></i><span class="cart-items">0</span></a>
+            <a href="<?= ROOT ?>/cart"><?= LanguageFactory::getLocalized("navigation.cart") ?> <i class="bx bx-cart"></i><span class="cart-items">0</span></a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
   <!-- END OF NAVBAR -->
 
   <div class="alerts"></div>

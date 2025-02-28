@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c8ecd23-7c85-4615-880d-538a309441df" name="Changes" comment="Eshop" />
+    <list default="true" id="9c8ecd23-7c85-4615-880d-538a309441df" name="Changes" comment="Eshop">
+      <change afterPath="$PROJECT_DIR$/app/core/Language.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/core/LanguageFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/core/Session.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/Lang.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/Translation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admin/translationsView.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/js/axios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/App.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/App.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/Model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/init.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/PaypalIPN.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/PaypalIPN.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/adminHeaderView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/adminHeaderView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/homeView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/homeView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/includes/headerView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/includes/headerView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/dashboard.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +31,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -24,6 +50,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2drcGIg7v50aB2OpedrUighz8eW" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -32,13 +61,24 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/www&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/projekt-potraviny&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;web.server&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -51,7 +91,15 @@
       <updated>1710769547495</updated>
       <workItem from="1710769548512" duration="531000" />
       <workItem from="1710770121071" duration="495000" />
-      <workItem from="1710770994826" duration="437000" />
+      <workItem from="1710770994826" duration="1790000" />
+      <workItem from="1710777631569" duration="20000" />
+      <workItem from="1711037006213" duration="471000" />
+      <workItem from="1711037546065" duration="8000" />
+      <workItem from="1739477015915" duration="12357000" />
+      <workItem from="1739647073905" duration="5769000" />
+      <workItem from="1739698991702" duration="9491000" />
+      <workItem from="1740246443189" duration="13134000" />
+      <workItem from="1740759775445" duration="8756000" />
     </task>
     <task id="LOCAL-00001" summary="Untracked">
       <created>1710769758322</created>
@@ -88,7 +136,35 @@
       <option name="project" value="LOCAL" />
       <updated>1710771428317</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Eshop">
+      <created>1710771522251</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1710771522251</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Eshop">
+      <created>1710771546631</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710771546631</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Eshop">
+      <created>1710771630844</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1710771630844</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Eshop">
+      <created>1710771838893</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1710771838893</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,6 +183,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Untracked" />
+    <MESSAGE value="potraviny" />
     <MESSAGE value="Eshop" />
     <option name="LAST_COMMIT_MESSAGE" value="Eshop" />
   </component>
