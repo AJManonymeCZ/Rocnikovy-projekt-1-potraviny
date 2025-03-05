@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Počítač: 127.0.0.1:3306
--- Vytvořeno: Pon 18. bře 2024, 13:21
+-- Vytvořeno: Stř 05. bře 2025, 20:12
 -- Verze serveru: 10.11.0-MariaDB
 -- Verze PHP: 8.2.0
 
@@ -170,8 +170,31 @@ CREATE TABLE IF NOT EXISTS `comment` (
 
 INSERT INTO `comment` (`id`, `content`, `likes`, `date_created`, `product_id`, `user_id`, `parent_id`) VALUES
 (60, 'Testovací komentář.', 0, '2024-03-18 10:31:28', 4, 1, NULL),
-(62, 'Toto je odpověď na můj komentář.', 0, '2024-03-18 10:43:55', 4, 1, 60),
 (64, 'Velice zajímavý komentář', 0, '2024-03-18 10:51:56', 4, 251, 60);
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `lang`
+--
+
+DROP TABLE IF EXISTS `lang`;
+CREATE TABLE IF NOT EXISTS `lang` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `key` varchar(10) NOT NULL,
+  `countryCode` varchar(10) NOT NULL,
+  `country` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `key_index` (`key`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Vypisuji data pro tabulku `lang`
+--
+
+INSERT INTO `lang` (`id`, `key`, `countryCode`, `country`) VALUES
+(1, 'en-US', 'US', 'United States'),
+(2, 'cs-CZ', 'CZ', 'Czech Republic');
 
 -- --------------------------------------------------------
 
@@ -263,12 +286,12 @@ CREATE TABLE IF NOT EXISTS `product` (
 --
 
 INSERT INTO `product` (`id`, `name`, `description`, `product_image`, `slug`, `category_id`, `date`, `price`, `views`) VALUES
-(1, 'Okurka', 'Cena za jeden kus. ', 'uploads/images/products/1671478859okurka.jpg', 'okurka', 3, '2022-12-19', '15.90', 81),
-(2, 'Slanina', 'Prodává se po 150g.', 'uploads/images/products/1671481355slanina.jpg', 'slanina', 2, '2022-12-19', '30.90', 346),
-(4, 'Šunka', ' Nullam faucibus mi quis velit. Duis risus. Aliquam erat volutpat. Pellentesque ipsum. Sed convallis magna eu sem. Nullam sit amet magna in magna gravida vehicula. Aliquam erat volutpat. Etiam posuere lacus quis dolor. Donec iaculis gravida nulla.\r\n', 'uploads/images/products/1679423475ham-g802076c8c_1280.jpg', 'sunka', 4, '2022-12-23', '130.90', 557),
-(11, 'Chleba', 'Vestibulum fermentum tortor id mi. Nunc tincidunt ante vitae massa. Nullam dapibus fermentum ipsum. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Aliquam ornare wisi eu metus. Sed convallis magna eu sem. Aliquam in lorem sit amet leo accumsan lacinia. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean fermentum risus id tortor. Vivamus ac leo pretium faucibus. Suspendisse nisl. Praesent dapibus.', 'uploads/images/products/1679071084bread-g4d40a8f54_1280.jpg', 'chleba', 9, '2023-03-17', '29.90', 0),
-(12, 'Máslový croissant', 'Pellentesque sapien. Nulla turpis magna, cursus sit amet, suscipit a, interdum id, felis. Aliquam erat volutpat. Sed convallis magna eu sem. Maecenas sollicitudin. Donec quis nibh at felis congue commodo. Suspendisse nisl. Aliquam erat volutpat. Sed convallis magna eu sem. Fusce wisi. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Mauris elementum mauris vitae tortor. Sed ac dolor sit amet purus malesuada congue.', 'uploads/images/products/1679071197background-gf552046f1_1280.jpg', 'maslovy-croissant', 9, '2023-03-17', '19.90', 31),
-(13, 'Skittles', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nunc dapibus tortor vel mi dapibus sollicitudin. Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Maecenas sollicitudin.', 'uploads/images/products/1679422727skittles-g69c6cd975_1280.jpg', 'skittles', 1, '2023-03-21', '15.90', 2);
+(1, 'Okurka', 'Cena za jeden kus. ', 'uploads/images/products/1671478859okurka.jpg', 'okurka', 3, '2022-12-19', '15.90', 82),
+(2, 'Slanina', 'Prodává se po 150g.', 'uploads/images/products/1671481355slanina.jpg', 'slanina', 2, '2022-12-19', '30.90', 350),
+(4, 'Šunka', ' Nullam faucibus mi quis velit. Duis risus. Aliquam erat volutpat. Pellentesque ipsum. Sed convallis magna eu sem. Nullam sit amet magna in magna gravida vehicula. Aliquam erat volutpat. Etiam posuere lacus quis dolor. Donec iaculis gravida nulla.\r\n', 'uploads/images/products/1679423475ham-g802076c8c_1280.jpg', 'sunka', 4, '2022-12-23', '130.90', 563),
+(11, 'Chleba', 'Vestibulum fermentum tortor id mi. Nunc tincidunt ante vitae massa. Nullam dapibus fermentum ipsum. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Aliquam ornare wisi eu metus. Sed convallis magna eu sem. Aliquam in lorem sit amet leo accumsan lacinia. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean fermentum risus id tortor. Vivamus ac leo pretium faucibus. Suspendisse nisl. Praesent dapibus.', 'uploads/images/products/1679071084bread-g4d40a8f54_1280.jpg', 'chleba', 9, '2023-03-17', '29.90', 1),
+(12, 'Máslový croissant', 'Pellentesque sapien. Nulla turpis magna, cursus sit amet, suscipit a, interdum id, felis. Aliquam erat volutpat. Sed convallis magna eu sem. Maecenas sollicitudin. Donec quis nibh at felis congue commodo. Suspendisse nisl. Aliquam erat volutpat. Sed convallis magna eu sem. Fusce wisi. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Mauris elementum mauris vitae tortor. Sed ac dolor sit amet purus malesuada congue.', 'uploads/images/products/1679071197background-gf552046f1_1280.jpg', 'maslovy-croissant', 9, '2023-03-17', '19.90', 34),
+(13, 'Skittles', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nunc dapibus tortor vel mi dapibus sollicitudin. Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Maecenas sollicitudin.', 'uploads/images/products/1679422727skittles-g69c6cd975_1280.jpg', 'skittles', 1, '2023-03-21', '15.90', 3);
 
 -- --------------------------------------------------------
 
@@ -316,6 +339,66 @@ INSERT INTO `slider_images` (`id`, `image`, `title`, `description`, `disabled`) 
 (2, 'uploads/images/slider/1710768059PET7616f2_jidlozdrave.jpg', 'U nás je vše dobré ', 'ochutnej u nás vše :)', 0),
 (3, 'uploads/images/slider/1672064138slanina.jpg', 'Slanina', 'U nás je nejlepší slanina.', 0),
 (4, 'uploads/images/slider/1678355257asparagus-g7eb23d2e1_1920.jpg', 'Naše maso je nejlepší ', 'Odkud bereme potraviny?', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `translation`
+--
+
+DROP TABLE IF EXISTS `translation`;
+CREATE TABLE IF NOT EXISTS `translation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `key` varchar(255) NOT NULL,
+  `en-US` text DEFAULT NULL,
+  `cs-CZ` text DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `key` (`key`),
+  KEY `idx_key` (`key`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Vypisuji data pro tabulku `translation`
+--
+
+INSERT INTO `translation` (`id`, `key`, `en-US`, `cs-CZ`) VALUES
+(1, 'navigation.home', 'Home', 'Domů'),
+(2, 'navigation.shop', 'Shop', 'Obchod'),
+(3, 'navigation.about', 'About', 'O nás'),
+(4, 'navigation.contact', 'Contact', 'Kontakt'),
+(5, 'navigation.signup', 'Sign up', 'Zaregistrovat se'),
+(6, 'navigation.login', 'Login', 'Přihlásit se'),
+(7, 'navigation.profile', 'Profile', 'Profil'),
+(8, 'navigation.orders', 'Order', 'Objednávky'),
+(9, 'navigation.dashboard', 'Dashboard', 'Dashboard'),
+(10, 'navigation.logout', 'Logout', 'Odhlásit se'),
+(11, 'navigation.cart', 'Cart', 'Košík'),
+(12, 'page.title.translations', 'Translations', 'Překlady'),
+(13, 'dashboard.languages', 'Languages', 'Jazyky'),
+(14, 'dashboard.languages.noLanguagesFound', 'No languages foud!', 'Žádné jazyky se nenašly'),
+(15, 'dashboard.language', 'Language', 'Jazyk'),
+(16, 'dashboard.translations.add.title', 'Add Language', 'Přidat Jazyk'),
+(17, 'dashboard.translations.add.key', 'Key', 'Klíč'),
+(18, 'dashboard.translations.add.countryCode', 'Country Code', ' Kód země'),
+(19, 'dashboard.translations.add.country', 'Country', 'Země'),
+(20, 'dashboard.translations.add.error.key', 'Key', 'Klíč je povinný'),
+(21, 'dashboard.translations.add.error.countryCode', 'Country code is required!', ' Kód země je povinný!'),
+(22, 'dashboard.translations.add.error.country', 'Country is required!', 'Země je povinná!'),
+(23, 'dashboard.translations.add.error.keyPattern', 'Invalid key format. Please use the correct pattern: \'xx-XX\' (e.g., en-US, cs-CZ).', 'Neplatný formát klíče. Použijte správný vzor: \'xx-XX\' (např. en-US, cs-CZ).'),
+(24, 'dashboard.translations.add.error.countryCodePattern', 'Invalid format. Please enter exactly two uppercase letters (e.g., \'US\', \'CZ\'). ', 'Neplatný formát. Zadejte přesně dvě velká písmena (např. \'US\', \'CZ\')'),
+(25, 'dashboard.successMessage', 'Value saved successfully.', 'Hodnota byla úspěšně uložena.'),
+(26, 'dashboard.translations.add.successMessage', 'Language saved successfully.', 'Jazyk se úspěšně uložil.'),
+(27, 'dashboard.actions', 'Actions', 'Akce'),
+(28, 'dashboard.translations.edit.title', 'Edit language', 'Upravit jazyk'),
+(29, 'dashboard.noResults', 'No results found.', 'Žádné výsledky.'),
+(30, 'dashboard.edit', 'Edit', 'Upravit'),
+(31, 'dashboard.cancel', 'Cancel', 'Zrušit'),
+(32, 'dashboard.somethingWentWrong', 'Something went wrong!', 'Něco se pokazilo!'),
+(33, 'dashboard.translations.delete.title', 'Delete Language', 'Smazat jazyk'),
+(34, 'dashboard.beforeDeleteMessage', 'Are you sure you want to delete this item?', 'Jste jsi jistý/á zda chcete smazat tuto položku '),
+(35, 'dashboard.delete', 'Delete', 'Smazat'),
+(36, 'dashboard.translations.delete.message', 'If you delete this language, all translation associated with it will also be deleted!', 'Pokud odstraníte tento jazyk, všechny překlady s ním spojené budou také smazány.'),
+(37, 'dashboard.save', 'Save', 'Uložit');
 
 -- --------------------------------------------------------
 
