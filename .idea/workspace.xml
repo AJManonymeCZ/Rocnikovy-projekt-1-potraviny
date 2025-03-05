@@ -4,25 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c8ecd23-7c85-4615-880d-538a309441df" name="Changes" comment="Eshop">
-      <change afterPath="$PROJECT_DIR$/app/core/Language.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/LanguageFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/Session.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/Lang.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/Translation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/admin/translationsView.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/js/axios.js" afterDir="false" />
+    <list default="true" id="9c8ecd23-7c85-4615-880d-538a309441df" name="Changes" comment="Translation logic done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/App.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/App.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/Model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/core/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/init.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/PaypalIPN.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/PaypalIPN.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/adminHeaderView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/adminHeaderView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/homeView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/homeView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/includes/headerView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/includes/headerView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/dashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Translation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Translation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/translationsView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/translationsView.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +86,8 @@
       <workItem from="1739647073905" duration="5769000" />
       <workItem from="1739698991702" duration="9491000" />
       <workItem from="1740246443189" duration="13134000" />
-      <workItem from="1740759775445" duration="8756000" />
+      <workItem from="1740759775445" duration="10637000" />
+      <workItem from="1740926165670" duration="12893000" />
     </task>
     <task id="LOCAL-00001" summary="Untracked">
       <created>1710769758322</created>
@@ -164,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1710771838893</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Translation logic done">
+      <created>1740777050836</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1740777050836</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,6 +180,7 @@
     <MESSAGE value="Untracked" />
     <MESSAGE value="potraviny" />
     <MESSAGE value="Eshop" />
-    <option name="LAST_COMMIT_MESSAGE" value="Eshop" />
+    <MESSAGE value="Translation logic done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Translation logic done" />
   </component>
 </project>

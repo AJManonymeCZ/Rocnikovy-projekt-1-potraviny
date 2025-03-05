@@ -510,19 +510,92 @@ class AdminController extends Controller
     $this->view("admin/slider", $data);
   }
 
-  public function translations() {
+  public function translations(string $action = null, string $id = null) {
+      if (!Auth::is_admin()) {
+          redirect("login");
+      }
+
       //TODO: add edit and remove languages
+      $data = [];
       $data['title'] = LanguageFactory::getLocalized("page.title.translations");
+      $data['action'] = $action;
 
       $languageClass = new Lang();
       $translationsClass = new Translation();
 
-      $langs = $languageClass->findAll();
-      $data['languages']['fields'] = $languageClass->getFields();
-      $data['languages']['data'] = $langs ?? [];
-      $data['fields'] = $translationsClass->getFields();
-      $data['translations'] = $translationsClass->findAll();
+      $method = $_SERVER['REQUEST_METHOD'];
+      switch ($method) {
+          case 'GET':
+              if ($action == null) {
+                  $langs = $languageClass->findAll();
+                  $data['languages']['fields'] = $languageClass->getFields();
+                  $data['languages']['fields'][] = LanguageFactory::getLocalized("dashboard.actions");
+                  $data['languages']['data'] = $langs ?? [];
+                  $data['fields'] = $translationsClass->getFields();
+                  $data['translations'] = $translationsClass->findAll();
+              } else if ($action == 'addLanguage') {
+                  $data['title'] = LanguageFactory::getLocalized("dashboard.translations.add.title");
+              } else if ($action == 'editLanguage' || $action == 'deleteLanguage') {
+                  $data['title'] = $action == 'editLanguage' ? LanguageFactory::getLocalized("dashboard.translations.edit.title") :
+                  LanguageFactory::getLocalized("dashboard.translations.delete.title");
+                  $row = $languageClass->first(['id' => $id]);
+                  if ($row) {
+                      $data['row'] = $row;
+                  }
+              } else {
+                  redirect( "admin/translations");
+              }
+              break;
+          case 'POST':
+              $dataPosted = $_POST;
+              if($action == 'addLanguage') {
+                  if($translationsClass->validateLanguage($dataPosted)) {
+                    $id = $languageClass->insert($dataPosted, true);
+                    $row = $languageClass->first(['id' => $id]);
+                    if ($row) {
+                        $translationsClass->query("ALTER TABLE ". $translationsClass->table ." ADD COLUMN `" . $row->key . "` text" );
+                        alert(LanguageFactory::getLocalized("dashboard.translations.add.successMessage"));
+                    }  else {
+                        alert(LanguageFactory::getLocalized("dashboard.somethingWentWrong"), false, false);
+                    }
+                    redirect("/admin/translations");
+                  }
+              } else if ($action == 'editLanguage') {
+                  $row = $languageClass->first(['id' => $id]);
+                  if($translationsClass->validateLanguage($dataPosted) && $row) {
+                      if ($languageClass->update($id, $dataPosted)) {
+                        alert(LanguageFactory::getLocalized("dashboard.translations.add.successMessage"));
+                      } else {
+                          alert(LanguageFactory::getLocalized("dashboard.somethingWentWrong"), false, false);
+                      }
+                      redirect("/admin/translations");
+                  }
+              } else if ($action == 'deleteLanguage') {
+                  $row = $languageClass->first(['id' => $id]);
+                  if($row) {
+                      // get the key of language
+                      $key = $row->key;
+                      // delete language
+                      $languageClass->delete($id);
+                      // check if translation table has this key
+                      foreach ($translationsClass->getFields() as $languageKey) {
+                          if ($languageKey == $key) {
+                              // delete this column
+                              $translationsClass->query("ALTER TABLE ". $translationsClass->table ." DROP COLUMN `" . $key . "`" );
+                          }
+                      }
+                      alert(LanguageFactory::getLocalized("dashboard.translations.delete.message"));
+                  } else {
+                      alert(LanguageFactory::getLocalized("dashboard.somethingWentWrong"), false, false);
+                  }
+                  redirect("/admin/translations");
+              }
+              break;
+          default:
+              redirect( "admin/translations");
+      }
 
+      $data['errors'] = $translationsClass->errors;
       $this->view("admin/translations", $data);
   }
 
@@ -547,7 +620,7 @@ class AdminController extends Controller
                       ["translation" => $translation, "id" => $rowId]
                   );
                   if ($check) {
-                    $this->respond(["message" => "Value saved successfully"], 200);
+                    $this->respond(["message" => LanguageFactory::getLocalized("dashboard.successMessage")], 200);
                   } else {
                       $this->respond(["error" => "Something went wrong"], 500);
                   }

@@ -114,7 +114,7 @@ function dd($stuff) {
 
 function redirect($link)
 {
-  header("Location: " . ROOT . "/" . $link);
+  header("Location: " . getPath() . "/" . $link);
   die;
 }
 
@@ -133,6 +133,24 @@ function message($msg = "", $erase = false)
     }
   }
   return false;
+}
+
+function alert($msg = "",  $erase = false, $goodAlert = true)
+{
+    if (!empty($msg)) {
+        $_SESSION['message']['message'] = $msg;
+        $_SESSION['message']['class'] = $goodAlert ? "alert" : "alert-danger";
+    } else {
+        if (!empty($_SESSION['message'])) {
+            $msg = $_SESSION['message'];
+
+            if ($erase) {
+                unset($_SESSION['message']);
+            }
+            return $msg;
+        }
+    }
+    return false;
 }
 
 function esc($str)
